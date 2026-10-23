@@ -165,39 +165,44 @@ class HomeScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(18),
                       ),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          _FeatureBadge(
-                            icon: Icons.bolt,
-                            label: 'Animasi Skor',
-                            onTap: () => _showFeatureDialog(
-                              context,
-                              title: 'Animasi Skor (Implisit)',
+                          Expanded(
+                            child: _FeatureBadge(
                               icon: Icons.bolt,
-                              description:
-                                  'Ikon petir menggunakan AnimatedScale dan ColorTween dengan efek elastic bounce saat jawaban benar!',
+                              label: 'Animasi Skor',
+                              onTap: () => _showFeatureDialog(
+                                context,
+                                title: 'Animasi Skor (Implisit)',
+                                icon: Icons.bolt,
+                                description:
+                                    'Ikon petir menggunakan AnimatedScale dan ColorTween dengan efek elastic bounce saat jawaban benar!',
+                              ),
                             ),
                           ),
-                          _FeatureBadge(
-                            icon: Icons.flip,
-                            label: 'Card Flip',
-                            onTap: () => _showFeatureDialog(
-                              context,
-                              title: 'Efek 3D Card Flip',
+                          Expanded(
+                            child: _FeatureBadge(
                               icon: Icons.flip,
-                              description:
-                                  'Pilihan jawaban berputar dalam ruang 3D menggunakan Matrix4 saat soal baru dimuat.',
+                              label: 'Card Flip',
+                              onTap: () => _showFeatureDialog(
+                                context,
+                                title: 'Efek 3D Card Flip',
+                                icon: Icons.flip,
+                                description:
+                                    'Pilihan jawaban berputar dalam ruang 3D menggunakan Matrix4 saat soal baru dimuat.',
+                              ),
                             ),
                           ),
-                          _FeatureBadge(
-                            icon: Icons.swap_horiz,
-                            label: 'Page Transition',
-                            onTap: () => _showFeatureDialog(
-                              context,
-                              title: 'PageTransitionSwitcher',
+                          Expanded(
+                            child: _FeatureBadge(
                               icon: Icons.swap_horiz,
-                              description:
-                                  'Transisi kartu soal dengan efek FadeThroughTransition yang halus dari package animations.',
+                              label: 'Page Transition',
+                              onTap: () => _showFeatureDialog(
+                                context,
+                                title: 'PageTransitionSwitcher',
+                                icon: Icons.swap_horiz,
+                                description:
+                                    'Transisi kartu soal dengan efek FadeThroughTransition yang halus dari package animations.',
+                              ),
                             ),
                           ),
                         ],
@@ -267,7 +272,7 @@ class _FeatureBadge extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         onTap: onTap,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+          padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 12),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -275,6 +280,9 @@ class _FeatureBadge extends StatelessWidget {
               const SizedBox(height: 5),
               Text(
                 label,
+                textAlign: TextAlign.center,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
                 style: const TextStyle(
                   fontSize: 11,
                   fontWeight: FontWeight.w600,
